@@ -1,0 +1,1387 @@
+/* LOADER */
+
+.loader {
+    pointer-events: none;
+    position: relative;
+    margin-top: 3rem;
+    display: grid;
+    place-items: center;
+    margin-inline: auto;
+    height: 42px;
+    width: 0vw;
+    max-width: 500px;
+    animation: width 8s cubic-bezier(.13, .62, .91, -0.26) 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.loader>* {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+/* Barre de chargement */
+.loader__progress-bar {
+    width: 100%;
+    height: 100%;
+    background-color: #484848;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Effet halo flou derrière la barre */
+.loader__halo-blurred {
+    width: 100%;
+    height: 8px;
+    display: grid;
+    place-items: center;
+    filter: blur(2.5px);
+}
+
+.loader__halo-blurred::after,
+.loader__halo {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    content: "";
+    width: 90%;
+    height: 50%;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+}
+
+.loader__halo {
+    height: 4px;
+}
+
+.loader__halo-blurred::before {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    content: "";
+    width: 93%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: #484848;
+    filter: blur(7px);
+}
+
+/* Optionnel : Ajouter un léger effet de glow autour du remplissage */
+.loader__glow {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(ellipse closest-side, #BDFE05, #000);
+    filter: blur(10px);
+    mix-blend-mode: color-dodge;
+    top: 0;
+    left: -25%;
+}
+
+/* Optionnel : Petit effet de mini-glow */
+.loader__miniglow {
+    top: calc(50% - 31.5px);
+    position: absolute;
+    width: 20%;
+    height: 150%;
+    background: radial-gradient(ellipse closest-side, #BDFE05, #000);
+    mix-blend-mode: color-dodge;
+    filter: blur(7px);
+    left: 80%;
+    animation: glow 3s linear infinite 0.5s;
+    left: 0;
+    opacity: 0;
+    transform-origin: 50% 50%;
+}
+
+
+@keyframes width {
+    0% {
+        width: 0vw;
+    }
+
+    50% {
+        width: 90vw;
+    }
+
+    100% {
+        width: 90vw;
+    }
+
+
+}
+
+
+/* Animation du mini-glow */
+@keyframes glow {
+    0% {
+        left: 0%;
+        opacity: 0;
+        transform: scaleY(1);
+    }
+
+    5% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    25% {
+        transform: scaleY(1.5) scaleX(3);
+    }
+
+    45% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scale(0);
+        left: 85%;
+        opacity: 1;
+    }
+
+    100% {
+        left: 85%;
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+
+
+/* Déclaration des différentes graisses de la police NeueMachina */
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Ultralight.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Ultrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueMachina';
+    src: url('fonts/NeueMachina-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Variables de couleur */
+:root {
+    --ue-green: #BDFE05;
+    --ue-black: #06080A;
+}
+
+body {
+    font-family: 'NeueMachina', monospace;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* 1. Masquer la scrollbar dans Chrome, Safari, Edge */
+::-webkit-scrollbar {
+    display: none;
+    /* WebKit/Blink-based browsers */
+}
+
+/* 2. Masquer la scrollbar dans Firefox */
+html,
+body {
+    /* Ou toute autre cible spécifique */
+    scrollbar-width: none;
+    scroll-behavior: smooth !important;
+    /* Firefox */
+}
+
+/* 3. Masquer la scrollbar dans Internet Explorer 10+ */
+html,
+body {
+    /* Ou toute autre cible spécifique */
+    -ms-overflow-style: none;
+    /* IE et Edge Legacy */
+}
+
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* Derrière tout */
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.5s ease;
+    /* Transition douce pour le fondu */
+    pointer-events: none;
+}
+
+#backgroundBlur1 {
+    background: url('images/slider1.webp') no-repeat center/cover;
+}
+
+#backgroundBlur2 {
+    background: url('images/slider2.webp') no-repeat center/cover;
+}
+
+#backgroundBlur3 {
+    background: url('images/slider3.webp') no-repeat center/cover;
+}
+
+#backgroundBlur4 {
+    background: url('images/slider4.webp') no-repeat center/cover;
+}
+
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--ue-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+
+#loader.hide-loader {
+    opacity: 0;
+    /* Disparaît progressivement */
+    filter: blur(50px);
+    /* Ajoute un flou progressif */
+    pointer-events: none;
+    /* Empêche toute interaction pendant l'animation */
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/*Style des boutons*/
+
+.button2 {
+    font-family: "Montserrat", sans-serif;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* Nécessaire pour l'effet */
+    z-index: 1;
+    border: solid white 1px;
+    transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.button2 span:last-of-type {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    width: 0;
+    border-radius: 50%;
+    background-color: #BDFE05;
+    /* Ajuste la couleur et l'opacité selon ton design */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+
+.button2:hover span:last-of-type {
+    width: 220%;
+}
+
+.button2:hover {
+    border-color: var(--ue-black);
+    color: var(--ue-black);
+}
+
+.button1 {
+    font-family: "Montserrat", sans-serif;
+    height: min-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ue-green);
+    text-decoration: none;
+    color: var(--ue-black);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 15px 38px;
+    border-radius: 8px 0px 8px 8px;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* Nécessaire pour l'effet */
+    z-index: 1;
+    transition: color 0.5s ease-in-out;
+}
+
+.button1 span:last-of-type {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    width: 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Ajuste la couleur et l'opacité selon ton design */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+
+.button1 svg {
+    stroke: currentColor;
+    /* Utilisation de la couleur du texte pour l'icône */
+    transition: stroke 0.5s ease-in-out;
+    /* Transition pour la couleur du SVG */
+    height: 1em;
+    /* Ajuste selon la taille de l'icône */
+}
+
+.button1:hover svg {
+    stroke: var(--ue-green);
+    /* Change la couleur de l'icône au survol */
+}
+
+.button1:hover {
+    color: var(--ue-green);
+    /* Change la couleur du texte au survol si nécessaire */
+}
+
+.button1:hover span:last-of-type {
+    width: 220%;
+}
+
+header {
+    box-sizing: border-box;
+    background-color: var(--ue-black);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header {
+    background-color: #06080A;
+    padding: 0 60px;
+}
+
+.active {
+    background-color: #00000000;
+}
+
+#sous-header-pc {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 35px;
+}
+
+#menu-pc {
+    display: flex;
+    gap: 120px;
+}
+
+#menu-pc a {
+    padding: 35px 0;
+}
+
+.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: medium;
+    position: relative;
+}
+
+.nav-link:after {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #aaa;
+    height: 1px;
+    transition: all .5s;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+.header-mobile {
+    display: none;
+    padding: 0 20px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 22px;
+    align-items: flex-end;
+}
+
+.bar {
+    background-color: white;
+    transition: all 300ms ease;
+}
+
+.top {
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+}
+
+.bottom {
+    width: 18px;
+    height: 4px;
+}
+
+.menu-toggle:hover .bottom {
+    width: 30px;
+    transition: width ease 300ms, transform 300ms ease;
+    transform: rotate(0deg) translate(0, 0px);
+}
+
+.menu-toggle.active .top {
+    transition: transform 300ms ease;
+    transform: rotate(45deg) translate(0, 6px);
+}
+
+.menu-toggle.active .bottom {
+    width: 30px;
+    transition: transform 300ms ease;
+    transform: rotate(-45deg) translate(0, -6px);
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.mobile-menu.show {
+    display: flex;
+}
+
+.mobile-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu ul li a {
+    padding: 10px 0;
+}
+
+@media (max-width: 900px) {
+    .header-pc {
+        display: none;
+    }
+
+    .header-mobile {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--ue-black);
+        padding: 0 20px;
+    }
+
+    .header-mobile .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+}
+
+#page {
+    background-color: var(--ue-black);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    z-index: 2;
+    scroll-behavior: smooth !important;
+}
+
+/* CLASS GÉNÉRALES */
+
+.flex {
+    display: flex;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-centre {
+    align-items: center;
+    justify-content: center;
+}
+
+/* NOUVELLE SECTION D'ACCUEIL */
+
+#home {
+    flex-direction: column;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background: var(--ue-black);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    gap: 25px;
+}
+
+#home:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+    pointer-events: none;
+    background-image: url(images/fond-home.webp);
+    filter: blur(var(--blurAmount, 0px));
+    opacity: var(--opacityAmount, 1);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    transition: filter 0.2s ease;
+    will-change: filter;
+}
+
+#home h1 {
+    text-align: center;
+    color: white;
+    font-size: 65px;
+    line-height: 0.9;
+    margin: 0;
+}
+
+#home h2 {
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    max-width: 750px;
+    margin-bottom: 5px;
+}
+
+#second {
+    background-color: var(--ue-black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: fit-content;
+    padding: 1% 0;
+    box-shadow: 0px -7px 10px 0px var(--ue-black);
+
+}
+
+
+.s-video {
+    position: relative;
+    z-index: 1;
+    height: 75%;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: -7%;
+}
+
+
+.s-video::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5vmax;
+    background: linear-gradient(0deg, rgba(6, 8, 10, 1) 20%, rgba(6, 8, 10, 0) 100%);
+}
+
+.background-video {
+    border-radius: 0.5vmax 0.5vmax 0.6vmax 0.6vmax;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.partner-logos {
+    justify-content: space-between;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 5%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.partner-logos img {
+    max-width: 100px;
+    fill: var(--white);
+    /* Force la couleur blanche pour les SVG */
+}
+
+.site-pad {
+    padding: 0 60px;
+}
+
+#third {
+    background: var(--ue-black);
+    height: min-content;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    justify-content: center;
+}
+
+.highlight {
+    color: var(--ue-green);
+}
+
+.th-fir {
+    height: min-content;
+    padding: 75px 0;
+}
+
+.th-fir div:first-of-type {
+    width: fit-content;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.t-white {
+    color: white;
+    font-size: 55px;
+    padding: 0;
+    margin: 0;
+    line-height: 0.95;
+}
+
+.t-green {
+    color: var(--ue-green);
+    font-size: 55px;
+    padding: 0;
+    margin: 0;
+    line-height: 0.95;
+}
+
+.subt-white {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: 100;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    line-height: 2;
+}
+
+.th-fir div:last-of-type {
+    width: auto;
+    flex: 1;
+    justify-content: end;
+    align-items: end;
+}
+
+#th-sec {
+    flex-direction: row;
+    height: min-content;
+    justify-content: space-between;
+}
+
+#third .sous {
+    height: min-content;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    z-index: 1;
+}
+
+#th-sec1 {
+    width: 43%;
+}
+
+#th-sec1 div {
+    position: sticky;
+    top: 30vh;
+    width: 100%;
+    height: 25%;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+    border-radius: 0.5vmax;
+}
+
+#th-sec2 {
+    flex-direction: column;
+    width: 53%;
+    height: 200px;
+    height: max-content;
+}
+
+.text-block {
+    padding: 5vh 0;
+}
+
+.text-block h2 {
+    color: white;
+    font-size: 20px;
+}
+
+.text-block p {
+    color: white;
+    font-size: 16px;
+    font-weight: 100;
+    font-family: "Montserrat", sans-serif;
+}
+
+#fourth {
+    height: 100vh;
+}
+
+.sous {
+    width: 100%;
+    max-width: 1000px;
+}
+
+#fourth {
+    justify-content: center;
+    height: min-content;
+    padding: 75px 60px;
+    box-sizing: border-box;
+}
+
+#fourth .sous {
+    height: 100%;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(0deg, rgba(6, 8, 10, 1) 20%, rgba(6, 8, 10, 0) 100%), url("images/texture.webp");
+    padding: 50px;
+    box-sizing: border-box;
+    gap: 30px;
+}
+
+#fourth .sous h2 {
+    color: white;
+    font-size: 100px;
+    line-height: 0.95;
+    margin: 0;
+    padding-top: 50px;
+}
+
+#div-btn {
+    gap: 20px;
+}
+
+#div-btn .button1 {
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+}
+
+#div-btn .button2 {
+    padding: 15px 38px;
+}
+
+#fifth {
+    justify-content: center;
+    height: min-content;
+    padding: 75px 60px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#fifth .sous {
+    height: 100%;
+    flex-direction: column;
+}
+
+#fifth .sous .th-fir {
+    padding-bottom: 30px;
+}
+
+.tab {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 16px;
+}
+
+.tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.tab__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+
+.tab input:checked~.tab__content {
+    max-height: 10rem;
+}
+
+/* Visual styles */
+.accordion {
+    overflow: hidden;
+}
+
+.tab__label,
+.tab__close {
+    display: flex;
+    color: white;
+    cursor: pointer;
+}
+
+.tab__label {
+    justify-content: space-between;
+    padding: 2em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0s ease;
+}
+
+.tab__label::after {
+    content: "";
+    background-image: url('images/arrow.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    transform: rotate(0deg);
+    transition: all 0.35s;
+}
+
+.tab input:checked+.tab__label::after {
+    transform: rotate(90deg);
+}
+
+.tab input:checked+.tab__label {
+    border-bottom: 1px solid var(--ue-green);
+    transition: border-bottom 0s ease !important;
+}
+
+.tab input:not(checked)+.tab__label {
+    transition: border-bottom 0.4s ease 0.15s !important;
+}
+
+.tab__content p {
+    margin: 0;
+    padding: 1rem;
+    font-weight: 200;
+    padding: 2em 4em;
+}
+
+.tab__close {
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#rd6:checked+.tab__close {
+    opacity: 0;
+}
+
+.accordion div:last-of-type {
+    border: 0;
+}
+
+#sixth {
+    background: var(--ue-black);
+    height: min-content;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    justify-content: center;
+}
+
+#sixth .sous {
+    flex-direction: column;
+    color: white;
+}
+
+#si-sec1 {
+    width: 43%;
+    height: 100%;
+}
+
+#si-sec2 {
+    font-family: "Montserrat", sans-serif;
+    height: min-content;
+    font-weight: 400;
+    font-size: 22px;
+    flex-direction: column;
+    flex-shrink: 1;
+    width: max-content;
+}
+
+#sixth #si-sec1 div {
+    background-image: linear-gradient(0deg, rgba(6, 8, 10, 1) 0%, rgba(6, 8, 10, 0) 100%), url('images/community.png');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.5vmax;
+}
+
+#si-two {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4%;
+}
+
+.tik {
+    color: var(--ue-black);
+    background-color: var(--ue-green);
+    padding: 5px 7px;
+    font-weight: 500;
+    line-height: 3;
+    margin-right: 0.3em;
+    margin-top: 0.5em;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 1;
+    transition: transform 0.5s ease;
+    cursor: default;
+}
+
+.tik:hover {
+    transform: scale(0.9);
+}
+
+#tik-1 {
+    border-radius: 1vmax;
+}
+
+#tik-3 {
+    border-radius: 0.3vmax;
+}
+
+#sc {
+    border-radius: 8px 0px 8px 8px;
+    color: white;
+    background-color: transparent;
+    border: solid white 1px;
+    transition: color 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+#sc span:last-of-type {
+    background-color: var(--ue-green);
+}
+
+#sc svg {
+    stroke: currentColor;
+    transition: stroke 0.5s ease-in-out;
+    height: 1em;
+}
+
+#sc:hover svg {
+    stroke: var(--ue-black);
+}
+
+#sc:hover {
+    color: var(--ue-black);
+    border-color: var(--ue-black);
+}
+
+.simp-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    text-decoration: underline;
+    color: white;
+}
+
+.simp-link:hover {
+    color: var(--ue-green);
+}
+
+#si-btn {
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+#footer {
+    background: var(--ue-black);
+    height: min-content;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    justify-content: center;
+}
+
+#footer .sous {
+    flex-direction: column;
+}
+
+.f {
+    height: fit-content;
+    padding: 1.3rem 0;
+    border-bottom: solid white 1px;
+    align-items: center;
+}
+
+#f1 {
+    justify-content: space-between;
+}
+
+#f1 div {
+    flex-direction: row;
+    gap: 14px;
+}
+
+.rs {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+}
+
+.rs svg {
+    height: 22px;
+    width: 22px;
+}
+
+.rs:hover svg {
+    fill: var(--ue-green);
+}
+
+#f1 .logo {
+    height: 30px;
+}
+
+#f2 {
+    color: white;
+    padding: 4rem 1rem;
+    justify-content: space-between;
+}
+
+#f2 h5 {
+    font-size: 700%;
+    font-weight: bold;
+    margin: 0;
+    line-height: 0.8;
+    margin-top: -20px;
+}
+
+#f2 div {
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    height: 100%;
+}
+
+#f2 .nav-link::after {
+    content: none;
+}
+
+#f2 .nav-link {
+    transition: color 0.3s ease;
+}
+
+#f2 .nav-link:hover {
+    color: var(--ue-green);
+}
+
+#f3 {
+    border: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+}
+
+#f3 #s {
+    width: max-content;
+    flex-direction: column;
+    height: 70px;
+    justify-content: space-between;
+    align-items: start;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    color: white;
+}
+
+#f3 #s span {
+    flex-shrink: 3;
+}
+
+#f3 #s div {
+    width: 50%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#f3 #s div a {
+    font-size: 13px;
+}
+
+#f3 #s div a:hover {
+    color: var(--ue-green);
+}
+
+#f3 #s div a::after {
+    content: none;
+}
+
+#f3 #as {
+    width: max-content;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+#f3 #as:hover {
+    transform: translateY(-10px);
+    color: var(--ue-green);
+}
+
+#f3 a svg {
+    height: 15px;
+    width: 15px;
+}
+
+#f3 a div {
+    height: 15px;
+    width: 15px;
+    transform: rotate(-90deg);
+}
+
+#fbtn {
+    font-size: 16px;
+}
+
+#seventh {
+    background: var(--ue-black);
+    height: min-content;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    justify-content: center;
+}
+
+#seventh .sous {
+    flex-direction: column;
+    color: white;
+}
+
+#seventh #btn-div {
+    gap: 25px;
+}
+
+#seventh #btn-div svg {
+    height: 20px;
+    width: 20px;
+    stroke: white;
+    transition: stroke 0.5s ease-in-out;
+}
+
+#seventh #btn-div svg path {
+    stroke-width: 4;
+}
+
+#seventh #btn-div a:first-of-type svg {
+    transform: rotate(180deg);
+}
+
+#seventh #btn-div a:hover svg {
+    stroke: var(--ue-black);
+}
+
+#seventh .th-fir {
+    padding: 60px 0;
+}
+
+/*SLIDER*/
+
+.wrapper {
+    overflow: hidden;
+    width: 100%;
+    /* Adaptez selon vos besoins */
+    position: relative;
+    overflow: visible;
+    clip-path: inset(0 -170% 0 0); /* Top, Right, Bottom, Left */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.slide {
+    flex: 0 0 34%;
+    /* Pour la séparation entre les slides */
+    box-sizing: border-box;
+}
+
+/*SLIDE TEMPLATE*/
+
+.slide {
+    /* Chaque slide occupe un tiers de la largeur du carousel */
+    margin-right: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.5s ease;
+}
+
+.slide:hover {
+    transform: scale(0.95);
+}
+
+.slide .button1 {
+    justify-content: end;
+    align-items: center;
+    border-radius: 9vmax;
+    width: 49px;
+    padding: 9px 19px;
+    transition: all 0.5s ease;
+    height: 35px;
+}
+
+.slide:hover .button1 {
+    width: 139px;
+}
+
+.slide .button1 span:first-of-type {
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    flex-shrink: 0;
+}
+
+.slide:hover .button1 span:first-of-type {
+    
+    opacity: 1;
+}
+
+.slide .button1 svg {
+    flex-shrink: 0;
+}
+
+.slide-content {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+    gap: 15px;
+    align-items: end;
+}
+
+.tags {
+    opacity: 0.7;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+    margin-bottom: auto;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    border-radius: 10vmax;
+    padding: 4px 15px;
+    font-size: 14px;
+    border: solid 1px white;
+}
+
+.tag:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+}

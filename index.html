@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreal Engine - The most powerful real-time 3D creation tool on the market</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Forum&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rakkas&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body class="no-scroll" id="body">
+
+    <div id="loader">
+        <div class="loader">
+            <div class="loader__halo-blurred"></div>
+            <div class="loader__halo"></div>
+            <div class="loader__gradient-mask">
+                <div class="loader__gradient"></div>
+            </div>
+            <div class="loader__glow"></div>
+            <div class="loader__miniglow"></div>
+        </div>
+    </div>
+
+    <!-- Header pour PC -->
+    <header class="header-pc headeranim">
+        <div id="sous-header-pc">
+            <img src="images/ue-logo.svg" alt="Logo Unreal Engine" class="logo">
+            <div id="menu-pc">
+                <a class="nav-link" href="index.html">Overview</a>
+                <a class="nav-link" href="tarif.html">Pricing</a>
+                <a class="nav-link" href="more.html">View more</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header pour Mobile -->
+    <header class="header-mobile">
+        <div class="container">
+            <img src="images/ue-logo.svg" alt="Logo Unreal Engine" class="logo">
+            <button class="menu-toggle" id="burger">
+                <div class="bar top"></div>
+                <div class="bar bottom"></div>
+            </button>
+        </div>
+        <nav class="mobile-menu site-nav">
+            <ul>
+                <li><a class="nav-link" href="index.html">Vue d'ensemble</a></li>
+                <li><a class="nav-link" href="tarif.html">Tarification</a></li>
+                <li><a class="nav-link" href="more.html">En savoir plus</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nouvelle section d'accueil -->
+    <div class="full-height full-width flex full-centre" id="home">
+        <h1>Transform ideas into <br> immersive experiences</h1>
+        <h2>Unreal Engine is built by developers, for developers, offering fair terms for all. Everyone with an idea
+            deserves to use the world’s most open, advanced real-time creation tool.</h2>
+        <a href="tarif.html" class="button1 btn-hover" id="fbtn">
+            <span>Download Unreal</span>
+            <svg width="11" height="11" viewBox="0 0 11 11" stroke="#06080A" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 10.5L10 1.5M10 1.5H1M10 1.5V10.5" stroke-width="1.3" />
+            </svg>
+            <span></span>
+        </a>
+    </div>
+
+    <div id="page">
+        <div class="flex" id="second">
+            <div class="s-video flex">
+                <video class="background-video" autoplay muted loop playsinline>
+                    <source src="images/video-accueil.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="partner-logos flex">
+                <img src="images/logos/logo-partner-1.svg" alt="Partner 1">
+                <img src="images/logos/logo-partner-2.svg" alt="Partner 2">
+                <img src="images/logos/logo-partner-3.svg" alt="Partner 3">
+                <img src="images/logos/logo-partner-4.svg" alt="Partner 4">
+                <img src="images/logos/logo-partner-5.svg" alt="Partner 5">
+            </div>
+        </div>
+
+        <canva class="background-blur" id="backgroundBlur1"></canva>
+        <canva class="background-blur" id="backgroundBlur2"></canva>
+        <canva class="background-blur" id="backgroundBlur3"></canva>
+        <canva class="background-blur" id="backgroundBlur4"></canva>
+        <div class="full-width flex" id="third">
+            <div class="flex sous">
+                <div class="full-width flex th-fir">
+                    <div class="flex">
+                        <h3 class="subt-white">Unreal Engine features</h3>
+                        <h2 class="t-white">Technical power,<br>built for your <span class="highlight">creativity</span>
+                        </h2>
+                    </div>
+                    <div class="flex">
+                        <a href="#" class="button2 btn-hover">
+                            <span>See all</span>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="full-width flex interactive-section" id="th-sec">
+                    <div class="flex" id="th-sec1">
+                        <div class="flex" id="image-display">
+
+                        </div>
+                    </div>
+                    <div class="flex" id="th-sec2">
+                        <div class="text-block" data-image="slider1.webp">
+                            <h2>Unmatched Visual Quality</h2>
+                            <p>Unreal Engine was built to unleash creativity with unparalleled visual fidelity. Push the boundaries of realism by incorporating complex lighting systems, lifelike shadows, and photorealistic textures into every scene. Whether you're creating highly detailed environments for AAA games or cinematic experiences, the power of Unreal Engine’s graphics rendering enables developers to breathe life into the most intricate details, all in real time.</p>
+                        </div>
+                        <div class="text-block" data-image="slider2.webp">
+                            <h2>Workflow Simplified for Developers</h2>
+                            <p>Define rule-breaking physics, create lifelike characters, or animate the movement of a
+                                single blade of grass—and render it all at the speed you can dream it. We originally
+                                designed Unreal Engine to give us the creative freedom we always wanted as developers.
+                                Today, our goal is to push the boundaries of innovation with every release so that only
+                                you, not your tools, get to decide the limits of what’s possible.</p>
+                        </div>
+                        <div class="text-block" data-image="slider3.webp">
+                            <h2>Interactive and Immersive Experiences</h2>
+                            <p>Transform your concepts into dynamic worlds where interaction is at the core. Unreal Engine offers intuitive tools that allow you to create immersive environments that respond to player actions, adjusting dynamically to new inputs. Craft everything from intuitive AI to interactive NPCs, without complex coding. With every action triggering a reaction, your projects become living, breathing experiences.</p>
+                        </div>
+                        <div class="text-block" data-image="slider4.webp">
+                            <h2>Versatility Across Industries</h2>
+                            <p>Unreal Engine isn't just for games—its versatility empowers creators across industries to bring their ideas to life. Whether you’re developing a real-time film set, crafting simulations for training programs, or visualizing cutting-edge automotive designs, Unreal Engine provides the tools necessary to make your vision a reality. Its adaptability to various industries means that your work can extend beyond traditional gaming, opening doors to new and innovative.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width flex" id="seventh">
+            <div class="flex sous">
+                <div class="full-width flex th-fir">
+                    <div class="flex">
+                        <h2 class="t-white">Recent news</span>
+                        </h2>
+                    </div>
+                    <div class="flex" id="btn-div">
+                        <a class="button2 btn-hover" id="goleft">
+                            <svg width="30" height="49" viewBox="0 0 30 49" fill="none" stroke="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3L25 24.5L3 46" stroke-width="7" />
+                            </svg>
+                            <span></span>
+                        </a>
+                        <a class="button2 btn-hover" id="goright">
+                            <svg width="30" height="49" viewBox="0 0 30 49" fill="none" stroke="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3L25 24.5L3 46" stroke-width="7" />
+                            </svg>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="carousel">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width flex" id="sixth">
+            <div class="flex sous">
+                <div class="full-width flex th-fir">
+                    <div class="flex">
+                        <h3 class="subt-white">Developer Community</h3>
+                        <h2 class="t-white">Learn new things and <br>
+                            connect with people <span class="highlight">like you</span></h2>
+                    </div>
+                    <div class="flex">
+                    </div>
+                </div>
+                <div class="full-width flex" id="si-two">
+                    <div class="flex" id="si-sec1">
+                        <div class="flex">
+                        </div>
+                    </div>
+                    <div class="flex" id="si-sec2">
+                        <div class="text-right">
+                            <p>a large community of <br><strong>Epic™</strong>
+                                developers for more<br> lively and breathtaking projects <br>
+                                <span class="tik" id="tik-1">+180 lessons</span> <span class="tik" id="tik-2">42k
+                                    users</span> <span class="tik" id="tik-3">…</span>
+                            </p>
+                        </div>
+                        <div class="flex full-width" id="si-btn">
+                            <a href="#" class="button1 btn-hover" id="sc">
+                                <span>Access to forums</span>
+                                <svg width="11" height="11" viewBox="0 0 11 11" stroke="#06080A" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 10.5L10 1.5M10 1.5H1M10 1.5V10.5" stroke-width="1.3" />
+                                </svg>
+                                <span></span>
+                            </a>
+                            <a href="#" class="simp-link">
+                                <span>Additional resources</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width flex" id="fifth">
+            <div class="flex sous">
+                <div class="full-width flex th-fir">
+                    <div class="flex">
+                        <h3 class="subt-white">F.A.Q</h3>
+                        <h2 class="t-white">Need help ?</h2>
+                    </div>
+                    <div class="flex">
+                        <a href="#" class="button2 btn-hover">
+                            <span>All questions</span>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="container2">
+                    <section class="accordion accordion--radio">
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd1">
+                            <label for="rd1" class="tab__label">Do I need coding knowledge to use Unreal Engine?</label>
+                            <div class="tab__content">
+                                <p>No! Unreal Engine includes the Blueprint visual scripting system, which allows you to create complex interactions without writing a single line of code. However, if you want more control, you can also use C++ for programming.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd2">
+                            <label for="rd2" class="tab__label">What platforms can I develop for with Unreal Engine?</label>
+                            <div class="tab__content">
+                                <p>Unreal Engine supports a wide variety of platforms, including PC, consoles (PlayStation, Xbox, Nintendo), mobile (iOS, Android), AR/VR devices, and even web browsers. You can develop for nearly any modern platform.</p>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd3">
+                            <label for="rd3" class="tab__label">Does Unreal Engine support large teams and collaboration?</label>
+                            <div class="tab__content">
+                                <p>Yes, Unreal Engine has built-in tools for version control and collaboration, making it easy for teams of any size to work together. Features like Multi-User Editing enable seamless teamwork, even in real-time.</p>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd4">
+                            <label for="rd4" class="tab__label">Can I access tutorials or support if I’m new to Unreal Engine?</label>
+                            <div class="tab__content">
+                                <p>Absolutely! Unreal Engine offers extensive free learning resources, including official documentation, video tutorials, and forums. You can also join a supportive community of developers and creators for additional help.</p>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd5">
+                            <label for="rd5" class="tab__label">What kind of assets can I use in Unreal Engine?</label>
+                            <div class="tab__content">
+                                <p>Unreal Engine offers access to the Unreal Marketplace, where you can find thousands of free and paid assets, including models, animations, textures, and sounds. Additionally, it provides Quixel Megascans, a massive library of high-quality photorealistic assets available for free.</p>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <input type="radio" name="accordion-2" id="rd6" checked="checked">
+                            <label for="rd6" class="tab__close">Close open tab &times;</label>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width flex" id="fourth">
+            <div class="flex sous">
+                <h2>make<br>it Unreal</h2>
+                <div class="flex" id="div-btn">
+                    <a href="tarif.html" class="button1 btn-hover">
+                        <span>Download Unreal</span>
+                        <svg width="11" height="11" viewBox="0 0 11 11" stroke="#06080A" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 10.5L10 1.5M10 1.5H1M10 1.5V10.5" stroke-width="1.3" />
+                        </svg>
+                        <span></span>
+                    </a>
+                    <a href="#" class="button2 btn-hover">
+                        <span>See pricing</span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="full-width flex" id="footer">
+            <div class="flex sous">
+                <div class="full-width flex f" id="f1">
+                    <img src="images/ue-logo.svg" alt="Logo Unreal Engine" class="logo">
+                    <div class="flex">
+                        <div class="rs">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="white"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.3789 2.75098H22.8262L15.2969 11.3545L24.1543 23.0635H17.2207L11.7861 15.9639L5.5752 23.0635H2.12305L10.1748 13.8594L1.68359 2.75098H8.79297L13.7002 9.24023L19.3789 2.75098ZM18.168 21.0029H20.0771L7.75293 4.7041H5.70215L18.168 21.0029Z" />
+                            </svg>
+                        </div>
+                        <div class="rs">
+                            <svg width="23" height="26" viewBox="0 0 23 26" fill="white"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.3174 7.29199C8.21191 7.29199 5.70703 9.79688 5.70703 12.9023C5.70703 16.0078 8.21191 18.5127 11.3174 18.5127C14.4229 18.5127 16.9277 16.0078 16.9277 12.9023C16.9277 9.79688 14.4229 7.29199 11.3174 7.29199ZM11.3174 16.5498C9.31055 16.5498 7.66992 14.9141 7.66992 12.9023C7.66992 10.8906 9.30566 9.25488 11.3174 9.25488C13.3291 9.25488 14.9648 10.8906 14.9648 12.9023C14.9648 14.9141 13.3242 16.5498 11.3174 16.5498ZM18.4658 7.0625C18.4658 7.79004 17.8799 8.37109 17.1572 8.37109C16.4297 8.37109 15.8486 7.78516 15.8486 7.0625C15.8486 6.33984 16.4346 5.75391 17.1572 5.75391C17.8799 5.75391 18.4658 6.33984 18.4658 7.0625ZM22.1816 8.39062C22.0986 6.6377 21.6982 5.08496 20.4141 3.80566C19.1348 2.52637 17.582 2.12598 15.8291 2.03809C14.0225 1.93555 8.60742 1.93555 6.80078 2.03809C5.05273 2.12109 3.5 2.52148 2.21582 3.80078C0.931641 5.08008 0.536133 6.63281 0.448242 8.38574C0.345703 10.1924 0.345703 15.6074 0.448242 17.4141C0.53125 19.167 0.931641 20.7197 2.21582 21.999C3.5 23.2783 5.04785 23.6787 6.80078 23.7666C8.60742 23.8691 14.0225 23.8691 15.8291 23.7666C17.582 23.6836 19.1348 23.2832 20.4141 21.999C21.6934 20.7197 22.0938 19.167 22.1816 17.4141C22.2842 15.6074 22.2842 10.1973 22.1816 8.39062ZM19.8477 19.3525C19.4668 20.3096 18.7295 21.0469 17.7676 21.4326C16.3271 22.0039 12.9092 21.8721 11.3174 21.8721C9.72559 21.8721 6.30273 21.999 4.86719 21.4326C3.91016 21.0518 3.17285 20.3145 2.78711 19.3525C2.21582 17.9121 2.34766 14.4941 2.34766 12.9023C2.34766 11.3105 2.2207 7.8877 2.78711 6.45215C3.16797 5.49512 3.90527 4.75781 4.86719 4.37207C6.30762 3.80078 9.72559 3.93262 11.3174 3.93262C12.9092 3.93262 16.332 3.80566 17.7676 4.37207C18.7246 4.75293 19.4619 5.49023 19.8477 6.45215C20.4189 7.89258 20.2871 11.3105 20.2871 12.9023C20.2871 14.4941 20.4189 17.917 19.8477 19.3525Z" />
+                            </svg>
+                        </div>
+                        <div class="rs">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="white"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19.3516 5.46094H17.4619V10.8174H19.3467L19.3516 5.46094ZM14.166 5.43652H12.2812V10.7979H14.166V5.43652ZM6.14844 0.407227L1.43652 4.87012V20.9443H7.09082V25.4072L11.8027 20.9443H15.5771L24.0635 12.9072V0.407227H6.14844ZM22.1787 12.0186L18.4092 15.5879H14.6348L11.334 18.7129V15.5879H7.09082V2.19434H22.1787V12.0186Z" />
+                            </svg>
+                        </div>
+                        <div class="rs">
+                            <svg width="16" height="26" viewBox="0 0 16 26" fill="white"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.15625 15.0215V25.4072H9.82031V15.0215H14.0439L14.9229 10.2461H9.82031V8.55664C9.82031 6.03223 10.8115 5.06543 13.3701 5.06543C14.166 5.06543 14.8057 5.08496 15.1768 5.12402V0.792969C14.4785 0.602539 12.7695 0.407227 11.7832 0.407227C6.56348 0.407227 4.15625 2.87305 4.15625 8.19043V10.2461H0.933594V15.0215H4.15625Z" />
+                            </svg>
+                        </div>
+                        <div class="rs">
+                            <svg width="29" height="26" viewBox="0 0 29 26" fill="white"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M27.7158 6.4668C27.4082 5.30957 26.5049 4.40137 25.3574 4.09375C23.2773 3.53223 14.9375 3.53223 14.9375 3.53223C14.9375 3.53223 6.59766 3.53223 4.51758 4.09375C3.37012 4.40137 2.4668 5.30957 2.15918 6.4668C1.60254 8.56152 1.60254 12.9268 1.60254 12.9268C1.60254 12.9268 1.60254 17.292 2.15918 19.3867C2.4668 20.5439 3.37012 21.4131 4.51758 21.7207C6.59766 22.2822 14.9375 22.2822 14.9375 22.2822C14.9375 22.2822 23.2773 22.2822 25.3574 21.7207C26.5049 21.4131 27.4082 20.5391 27.7158 19.3867C28.2725 17.292 28.2725 12.9268 28.2725 12.9268C28.2725 12.9268 28.2725 8.56152 27.7158 6.4668ZM12.2129 16.8916V8.96191L19.1807 12.9268L12.2129 16.8916Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-width flex f" id="f2">
+                    <h5>Endless power</h5>
+                    <div class="flex">
+                        <a class="nav-link" href="index.html">Overview</a>
+                        <a class="nav-link" href="tarif.html">Pricing</a>
+                        <a class="nav-link" href="more.html">View more</a>
+                    </div>
+
+                </div>
+                <div class="full-width flex f" id="f3">
+                    <div class="flex" id="s">
+                        <span class="wobble">© 2024, Epic Games, Inc. All rights reserved. Unreal and its logo are
+                            Epic’s trademarks or registered trademarks in the US and elsewhere.</span>
+                        <div class="flex">
+                            <a class="nav-link" href="#">Terms of service</a>
+                            <a class="nav-link" href="#">Privacy policy</a>
+                            <a class="nav-link" href="#">Safety & security</a>
+                        </div>
+                    </div>
+                    <a class="flex" id="as" href="#body">
+                        <span>Back to top</span>
+                        <div class="flex">
+                            <svg width="30" height="49" viewBox="0 0 30 49" fill="none" stroke="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3L25 24.5L3 46" stroke-width="7" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,578 @@
+body {
+    background-color: var(--ue-black);
+}
+
+.header {
+    transition: all 0.3s ease;
+}
+
+#main {
+    margin-top: 55px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+#main .sous {
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    gap: 30px;
+    padding: 25px 0 50px 0;
+}
+
+#main #tt1 {
+    flex-direction: column;
+    max-width: 73%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+    gap: 15px;
+}
+
+#tt1 h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+#tt1 h2 {
+    width: 80%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+}
+
+#pricing {
+    flex-direction: column;
+    min-height: 100%;
+    height: fit-content;
+    gap: 15px;
+}
+
+#swap {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: default;
+    -webkit-user-select: none;
+    /* Chrome, Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer */
+    user-select: none;
+}
+
+input[disabled]+label {
+    animation: crsr 3s linear;
+}
+
+input[disabled]~label[for="switchYearly"] {
+    animation: crsr 3s linear;;
+}
+
+@keyframes crsr {
+    0% {
+        cursor: pointer;
+    }
+
+    30% {
+        cursor: default;
+    }
+}
+
+
+
+/*TOGGLE SWITCH*/
+
+:root {
+    --switches-label-color: white;
+    --switch-bg-color: #BDFE05;
+    --switch-text-color: #06080A;
+    --card-color: rgb(23, 23, 23);
+}
+
+.switches-container {
+    width: 13rem;
+    position: relative;
+    display: flex;
+    padding: 0;
+    position: relative;
+    line-height: 2.3rem;
+    border-radius: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px rgba(255, 255, 255, 0.30) solid;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 300;
+}
+
+.switches-container label:last-of-type {
+    background-position: 230% 0;
+    animation: shine 3s infinite linear;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.627) 0%, white 10%, rgba(255, 255, 255, 0.627) 20%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+}
+
+.switches-container label:last-of-type .star {
+    font-size: 11px;
+    vertical-align: 2.5px;
+    margin-left: 2px;
+}
+
+/* switch highlighters wrapper (sliding left / right) 
+    - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    padding: 0.30rem;
+    z-index: 3;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+    /* transition: transform 1s; */
+
+}
+
+/* switch box highlighter */
+.switch {
+    border-radius: 3rem;
+    background: var(--switch-bg-color);
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+/* switch box labels
+    - default setup
+    - toggle afterwards based on radio:checked status 
+*/
+.switch div {
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    font-weight: 400;
+    display: block;
+    color: var(--switch-text-color);
+    transition: opacity .2s cubic-bezier(.77, 0, .175, 1) .125s, color .2s cubic-bezier(.77, 0, .175, 1) .125s;
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper {
+    transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper {
+    transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div:nth-of-type(2) {
+    opacity: 1;
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(1):checked~.switch-wrapper .switch {
+    box-shadow: 0px 0px 0px 0px var(--ue-green);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch {
+
+    background-color: #6011ff;
+    animation: anim-glow 2s ease infinite;
+}
+
+.switches-container input:nth-of-type(2):checked~.switch-wrapper .switch div {
+    color: white;
+}
+
+@keyframes anim-glow {
+    0% {
+        box-shadow: 0 0 #1d11ffb6, 0 0 #ff00d46c, inset 0 0 #ff00bb47;
+    }
+
+    100% {
+        box-shadow: 0 0 20px 17px transparent, 0 0 10px 7px transparent, inset 0 0 40px 10px transparent;
+        /* box-shadow: 0 0 10px 8px transparent; */
+        border-width: 2px;
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: 220% 0;
+        /* Démarre hors du texte */
+    }
+
+    70% {
+        background-position: 50% 0;
+        /* Passe complètement à gauche */
+    }
+
+    100% {
+        background-position: 25% 0;
+        /* Retourne à l'état caché */
+    }
+}
+
+#cards .button2 span:last-of-type {
+
+    background-color: var(--colorv2);
+    transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+}
+
+#cards .button2:hover {
+    color: var(--colorv3);
+}
+
+#cards2 .button2 span:last-of-type {
+
+    background-color: var(--colorv2);
+    transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+}
+
+#cards2 .button2:hover {
+    color: var(--colorv3);
+}
+
+
+
+/* CARDS */
+
+#main .sous {
+    min-height: 100%;
+    height: fit-content;
+}
+
+#offres {
+    min-height: 100%;
+    height: fit-content;
+    overflow: visible;
+    position: relative;
+}
+
+#cards {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    overflow: visible;
+    -webkit-user-select: none;
+    /* Chrome, Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer */
+    user-select: none;
+}
+
+#cards2 {
+    align-items: stretch;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    overflow: visible;
+}
+
+#cards .card:first-of-type {
+    z-index: 2;
+    opacity: var(--opacity1);
+    transform: translateX(var(--cards1));
+    transition: transform 2s ease calc(var(--retard2) + var(--opacity1) * 0.5s), opacity 1s ease var(--retard2);
+}
+
+#cards .chigh {
+    z-index: 1;
+    opacity: var(--opacity1);
+    transform: translateX(var(--cards1));
+    transition: transform 2s ease calc(0.3s + var(--opacity1) * 0.5s), opacity 1s ease 0.3s, box-shadow 1s ease;
+}
+
+#cards .card:last-of-type {
+    z-index: 2;
+    opacity: var(--opacity1);
+    transform: translateX(var(--cards1));
+    transition: transform 2s ease calc(var(--retard1) + var(--opacity1) * 0.5s), opacity 1s ease var(--retard1);
+}
+
+#cards2 .card:first-of-type {
+    z-index: 2;
+    opacity: var(--opacity2);
+    transform: translateX(var(--cards2));
+    transition: transform 2s ease calc(var(--retard2) + var(--opacity2) * 0.5s), opacity 1s ease var(--retard2);
+}
+
+#cards2 .chigh {
+    z-index: 1;
+    opacity: var(--opacity2);
+    transform: translateX(var(--cards2));
+    transition: transform 2s ease calc(0.3s + var(--opacity2) * 0.5s), opacity 1s ease 0.3s, box-shadow 1s ease;
+}
+
+#cards2 .card:last-of-type {
+    z-index: 2;
+    opacity: var(--opacity2);
+    transform: translateX(var(--cards2));
+    transition: transform 2s ease calc(var(--retard1) + var(--opacity2) * 0.5s), opacity 1s ease var(--retard1);
+}
+
+#cards:hover>.card::after {
+    opacity: 1;
+}
+
+#cards2:hover>.card::after {
+    opacity: 1;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1 1 calc(33.333% - 20px);
+    /* Prend un tiers de la largeur en mode desktop */
+    width: calc(33.333% - 20px);
+    padding: 1px;
+    cursor: default;
+}
+
+.card::before {
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card::before,
+.card::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+}
+
+.card::before {
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%);
+    z-index: 3;
+}
+
+.card::after {
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            var(--contour-hover),
+            transparent 40%);
+    z-index: 1;
+}
+
+.chigh {
+    transition: box-shadow 1s ease;
+    box-shadow: 0px 0px 1000px 0px var(--shadow-color);
+}
+
+.chigh .button2 {
+    background-color: var(--btn-high) !important;
+    color: var(--colorv4);
+    border: 0;
+    transition: color 0.5s ease, border-color 1.5s ease-in-out, background-color 1.5s ease;
+}
+
+.chigh .button2:hover {
+    color: white !important;
+}
+
+.chigh .button2 span:last-of-type {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.card>.card-content {
+    height: 100%;
+    background-color: var(--card-color);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    transition: box-shadow 0.5s ease;
+    min-width: 100%;
+    /* Respecte la largeur minimale du contenu */
+    box-shadow: inset 0 0 150px 0 var(--shadow-colorv2);
+}
+
+
+:root {
+    --contour-hover: rgba(188, 254, 5, 0.596);
+    --shadow-color: rgba(188, 254, 5, 0.15);
+    --colorv2: #BDFE05;
+    --colorv3: var(--ue-black);
+    --shadow-colorv2: rgba(188, 254, 5, 0.05);
+    --btn-high: #BDFE05;
+    --colorv4: var(--ue-black);
+    --cards1: 0vw;
+    --cards2: 100vw;
+    --retard1: 0s;
+    --retard2: 0.6s;
+    --opacity1: 1;
+    --opacity2: 0;
+}
+
+.card-title {
+    flex-direction: column;
+    margin: 0;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+    border-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 0.5) 3px, transparent 3px, transparent 6px) 10;
+}
+
+.card-title h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.card-title h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.rest {
+    flex-direction: column;
+    width: max-content;
+    width: 100%;
+}
+
+.price {
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px 0;
+}
+
+.price h6:first-of-type {
+    display: inline-flex;
+    width: fit-content;
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 37px;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+
+#cards2 .card-title h4:after {
+    font-family: 'Montserrat', sans-serif;
+    content: '-10% off';
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+    opacity: 1;
+    margin: 0;
+    margin-left: 10px;
+    background-position: 230% 0;
+    animation: shine 3s infinite linear;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.627) 0%, white 10%, rgba(255, 255, 255, 0.627) 20%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+}
+
+.price h6:last-of-type {
+    font-size: 14px;
+    font-weight: 200;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.lst ul {
+    list-style: none;
+    /* Supprime les puces par défaut */
+    padding: 0;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.lst ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    /* Espacement entre les éléments */
+}
+
+/* Icône coche en SVG */
+.lst ul li::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>');
+    display: inline-block;
+    margin-right: 10px;
+    /* Espacement entre l'icône et le texte */
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Style du texte de la liste */
+.lst ul li span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.button2 {
+    width: 100%;
+}
+
+/* .v2 {
+    --contour-hover: rgba(96, 17, 255, 0.767);
+} */

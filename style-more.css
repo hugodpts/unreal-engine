@@ -1,0 +1,283 @@
+#main-more {
+    padding-top: 91px;
+    justify-content: center;
+    align-items: start;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+#main-more .sous {
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    gap: 30px;
+}
+
+.more-page {
+    height: fit-content;
+    gap: 20px;
+    max-width: 100%;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+
+.sommaire {
+    flex: 0 0 30%;
+    flex-direction: column;
+    height: fit-content;
+    position: sticky;
+    top: 141px;
+    right: 0;
+    border-radius: 0.5vmax;
+    border: 1px white solid;
+    transition: opacity 2s ease;
+    opacity: 0.5
+}
+
+.sommaire:hover {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.sous-page {
+    flex-grow: 1; /* Prend tout l'espace disponible */
+    flex-shrink: 1; /* Permet de s'ajuster si l'espace est limité */
+    flex-basis: 0; /* Permet à flex-grow de déterminer la largeur */
+    min-width: 0; /* Évite le débordement dû à un contenu trop large */
+    overflow-wrap: break-word; /* Pour forcer le texte à se couper si nécessaire */
+    word-break: break-word; /* Pour gérer les longues chaînes sans espace */
+    flex-direction: column;
+    height: fit-content;
+    gap: 100px;
+}
+
+.sec-s-more {
+    scroll-margin-top: 100px; 
+    flex-direction: column;
+    height: fit-content;
+    padding: 0 20px 0px 20px;
+    color: white;
+}
+
+.sec-s-more h5 {
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 2.2em;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    padding-bottom: 15px;
+}
+
+.sec-s-more p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+.custom-list {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.custom-list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.custom-list-inline li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.highlight {
+    margin-top: 30px;
+    background: rgba(255, 255, 0, 0.2);
+    padding: 10px 10px 10px 20px;
+    border-left: 3px solid #fcd34d;
+    font-style: italic;
+}
+
+.highlight h6 {
+    margin-top: 10px;
+}
+
+.stats-box h6 {
+    margin-top: 10px !important;
+}
+
+.info-box, .stats-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #7fd1f7;
+    margin-top: 20px;
+    padding: 10px 10px 10px 20px;
+}
+
+.info-box h6, .stats-box h6 {
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.table-wrapper {
+    flex-direction: column;
+    display: flex;
+    margin: 15px 0;
+    gap: 15px;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    text-align: left;
+}
+
+.table-wrapper th {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+}
+
+
+
+
+.tab {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 16px;
+}
+
+.tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.acc2 .tab__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.25s;
+    padding: 0em 2em 0em 2em;
+}
+
+.acc2 .tab input:checked~.tab__content {
+    transition: all 0.4s linear, padding 0.3s linear;
+    max-height: 30rem;
+    padding: 2em 2em 2em 2em;
+}
+
+/* Visual styles */
+.acc2 {
+    overflow: hidden;
+}
+
+.tab__label,
+.tab__close {
+    display: flex;
+    color: white;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.acc2 .tab__label {
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0s ease;
+}
+
+.tab__label::after {
+    content: "";
+    background-image: url('images/arrow2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    transform: rotate(0deg);
+    transition: all 0.35s;
+}
+
+.tab input:checked+.tab__label::after {
+    transform: rotate(90deg);
+}
+
+.acc2 .tab input:checked+.tab__label {
+    border-bottom: 1px solid white;
+    transition: border-bottom 0s ease !important;
+}
+
+.tab input:not(checked)+.tab__label {
+    transition: border-bottom 0.4s ease 0.15s !important;
+}
+
+.tab__content p {
+    margin: 0;
+    padding: 1rem;
+    font-weight: 200;
+    padding: 2em 4em;
+}
+
+#rd6:checked+.tab__close {
+    opacity: 0;
+}
+
+.accordion div:last-of-type {
+    border: 0;
+}
+
+.acc2 ul {
+    display: flex;
+    flex-direction: column; /* Ou row si c'est horizontal */ /* Espace de 10px entre les éléments */
+    list-style: none; /* Optionnel, pour enlever les puces */
+    padding: 0; /* Optionnel, pour réduire les marges */
+    margin: 0;
+}
+
+.acc2 ul li {
+    width: 100%;
+    height: min-content;
+}
+
+.acc2 ul li a {
+    display: flex;
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 0.3vmax;
+}
+
+.acc2 ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.027);
+}
